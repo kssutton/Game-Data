@@ -28,6 +28,15 @@ public class Card {
     String type;
     int effectType;
     
+    //////////////////////////////////////////////////////////////////////////////
+    //  Descritpion: This function serves as the constructor for the Card
+    //  class.
+    //
+    //  Inputs: A String array containing all the data needed to create a Card
+    //  object.
+    //
+    //  Outputs: A Card Object
+    //////////////////////////////////////////////////////////////////////////////
     public Card(String[] data)
     {
         id = Integer.parseInt(data[0]);
@@ -35,6 +44,14 @@ public class Card {
         type = data[2];
     }
     
+    //////////////////////////////////////////////////////////////////////////////
+    //  Descritpion: This function allows for conversion of Card objects to 
+    //  Strings
+    //
+    //  Inputs: Nothing
+    //
+    //  Outputs: A String containing the name of the Card object
+    //////////////////////////////////////////////////////////////////////////////
     @Override
     public String toString()
     {
@@ -43,6 +60,14 @@ public class Card {
         return(this.name);
     }
     
+    //////////////////////////////////////////////////////////////////////////////
+    //  Descritpion: This function handles which effect a card will execute.
+    //
+    //  Inputs: An int flag containing the type of effect to select, and an 
+    //  int value containing the numeric value to be used to execute the effect
+    //
+    //  Outputs: nothing
+    //////////////////////////////////////////////////////////////////////////////
     public void effectSelector(int effectType, int value)
     {
         switch (effectType)
@@ -61,6 +86,15 @@ public class Card {
         }
     }
     
+    //////////////////////////////////////////////////////////////////////////////
+    //  Descritpion: This function executes a card effect which deals
+    //  damage to an enemy
+    //
+    //  Inputs: A Creature target containing the object to be targeted,
+    //  int damageAmmount the ammount of damage to be dealt
+    //
+    //  Outputs: nothing
+    //////////////////////////////////////////////////////////////////////////////
     public void effect_dealDamage(Creature target, int damageAmmount)
     {
         int targetHealth = target.getHealth();
