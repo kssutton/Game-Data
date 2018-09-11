@@ -1,0 +1,13 @@
+ID Number
+name
+Level
+Experience
+Health
+Power
+Finesse
+Intellect
+Faith
+Speed
+Endurance
+Charisma
+Luck
