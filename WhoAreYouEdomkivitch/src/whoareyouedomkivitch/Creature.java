@@ -76,11 +76,27 @@ public class Creature {
         Luck = Integer.parseInt(data[12]);
     }
     
+    //////////////////////////////////////////////////////////////////////////////
+    //  Descritpion: This function allows other functions to access the health
+    //  of the creature
+    //
+    //  Inputs: nothing
+    //
+    //  Outputs: an int containing the creature's health
+    //////////////////////////////////////////////////////////////////////////////
     public int getHealth()
     {
         return this.Health;
     }
     
+    //////////////////////////////////////////////////////////////////////////////
+    //  Descritpion: This function allows other functions to assign the health
+    //  of the creature
+    //
+    //  Inputs: an int health, containing the health to be set
+    //
+    //  Outputs: nothing
+    //////////////////////////////////////////////////////////////////////////////
     public void setHealth(int health)
     {
         this.Health = health;
