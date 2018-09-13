@@ -17,13 +17,17 @@
 //          int Charisma,
 //          int Luck,
 //          Card[] Deck
-//  Functions: public Creature(String[])
+//  Functions: public Creature(String[]), public int getHealth(), 
+//  public void setHealth(int health), 
+//  protected Card[] shuffleDeck(Card[] deck)
 //  Parent:
 //  Children: NPC, Inbetween_CombatCreature
 //
 /////////////////////////////////////////////////////////////////////////////
 
 package whoareyouedomkivitch;
+
+import java.util.Random;
 
 /**
  *
@@ -100,6 +104,27 @@ public class Creature {
     public void setHealth(int health)
     {
         this.Health = health;
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////
+    //  Descritpion: This function takes the given creature's deck and shuffles 
+    //  it.
+    //
+    //  Inputs: a card array containing the deck attribute of a creature.
+    //
+    //  Outputs: a card array containing the shuffled deck.
+    //////////////////////////////////////////////////////////////////////////////
+    protected Card[] shuffleDeck(Card[] deck)
+    {
+        int length = deck.length;
+        for(int i = length - 1; i > 0; i--)
+        {
+            int index = new Random().nextInt(i+1);
+            Card swap = deck[index];
+            deck[index] = deck[i];
+            deck[i] = swap;
+        }
+        return deck;
     }
     
 }
