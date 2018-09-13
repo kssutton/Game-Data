@@ -38,7 +38,7 @@ public class ReadIn {
     //
     //  Outputs: A String array containing each line of the file in order.
     //////////////////////////////////////////////////////////////////////////////
-    private static String[] pullIn(String fileName)
+    public static String[] pullIn(String fileName)
     {
         //This block attempts to open the input file.
         //If there is no file with this name, it prints an error to the 
@@ -70,6 +70,12 @@ public class ReadIn {
         instream.close();
         return output;
     }
+    
+    ////////////////////////////NOTE:///////////////////////////////////
+    //the following functions do not work currently. Work arounds are 
+    //established in other sections of the code. Only use the above
+    //pullIn function for input.
+    ////////////////////////////////////////////////////////////////////
     
     //////////////////////////////////////////////////////////////////////////////
     //  Descritpion: This function determines the type of object to create based
