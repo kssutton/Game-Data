@@ -34,8 +34,8 @@ public class Minion extends Inbetween_Minion{
     public Minion(String[] data)
     {
         super(data);
-        rank = Integer.parseInt(data[6]);
-        characteristic = data[7].charAt(0);
+        rank = Integer.parseInt(data[7]);
+        characteristic = data[8].charAt(0);
     }
 
 }

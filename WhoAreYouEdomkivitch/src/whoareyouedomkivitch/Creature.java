@@ -16,7 +16,11 @@
 //          int Endurance,
 //          int Charisma,
 //          int Luck,
-//          Card[] Deck
+//          Card[] Chain1Deck
+//          Card[] Chain2Deck
+//          Card[] Chain3Deck
+//          Card[] Chain4Deck
+//          Card[] Chain5Deck
 //  Functions: public Creature(String[]), public int getHealth(), 
 //  public void setHealth(int health), 
 //  protected Card[] shuffleDeck(Card[] deck)
@@ -52,7 +56,11 @@ public class Creature {
     int Charisma;
     int Luck;
     
-    Card[] Deck;
+    Card[] Chain1Deck;
+    Card[] Chain2Deck;
+    Card[] Chain3Deck;
+    Card[] Chain4Deck;
+    Card[] Chain5Deck;
     
     //////////////////////////////////////////////////////////////////////////////
     //  Descritpion: This function serves as the constructor for the Creature

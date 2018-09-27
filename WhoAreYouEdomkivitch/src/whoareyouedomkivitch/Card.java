@@ -6,6 +6,7 @@
 //
 //  Fields: int id;
 //          String name;
+//          int chainNumber;
 //          String type;
 //          int effectType;
 //  Functions: public Card(String[])
@@ -25,6 +26,7 @@ public class Card {
     
     int id;
     String name;
+    int chainNumber;
     String type;
     int effectType;
     
@@ -42,6 +44,7 @@ public class Card {
         id = Integer.parseInt(data[0]);
         name = data[1];
         type = data[2];
+        chainNumber = Integer.parseInt(data[3]);
     }
     
     //////////////////////////////////////////////////////////////////////////////
