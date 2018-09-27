@@ -38,9 +38,9 @@ public class Inbetween_Minion extends Card{
     public Inbetween_Minion(String[] data)
     {
         super(data);
-        attribute = data[3].charAt(0);
-        attack = Integer.parseInt(data[4]);
-        defense = Integer.parseInt(data[5]);
+        attribute = data[4].charAt(0);
+        attack = Integer.parseInt(data[5]);
+        defense = Integer.parseInt(data[6]);
     }
 
 }

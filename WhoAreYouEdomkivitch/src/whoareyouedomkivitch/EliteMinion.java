@@ -35,9 +35,9 @@ public class EliteMinion extends Inbetween_Minion{
         super(data);
         
         String[] requirements = new String[3];
-        requirements[0] = data[6];
-        requirements[1] = data[7];
-        requirements[2] = data[8];
+        requirements[0] = data[7];
+        requirements[1] = data[8];
+        requirements[2] = data[9];
         
         exileRequirements = new Card[3];
         String[] holdingArray = null;
