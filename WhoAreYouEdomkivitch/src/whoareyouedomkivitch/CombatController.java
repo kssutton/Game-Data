@@ -7,6 +7,8 @@
 //
 //  Fields: Field fieldOfPlay;
 //          Boolean combatActive;
+//          Boolean isFirstTurn;
+//          int globalTurnNumber;
 //          int turn;
 //          int[] turnOder;
 //  Functions:  CombatController()
@@ -28,6 +30,8 @@ public class CombatController {
     
     Field fieldOfPlay;
     Boolean combatActive;
+    Boolean isFirstTurn;
+    int globalTurnNumber;
     int turn;
     int[] turnOrder;
     
@@ -43,8 +47,9 @@ public class CombatController {
     {
         fieldOfPlay = current;
         combatActive = true;
+        isFirstTurn = true;
+        globalTurnNumber = 0;
         turn = -1;
-        turnOrder = new int[(current.player.Party.length+current.opponents.length)];
     }
     
     //////////////////////////////////////////////////////////////////////////////
@@ -53,10 +58,9 @@ public class CombatController {
     //
     //  Inputs: A Field object containing all the creatures in combat
     //
-    //  Outputs: An array of ints containing the order which combat will be
-    //  executed in.
+    //  Outputs: Nothing.
     //////////////////////////////////////////////////////////////////////////////
-    private int[] determineTurnOrder(Field current)
+    private void determineTurnOrder(Field current)
     {
         int[] speedValues = new int[10];
         speedValues[0] = current.player.Party[0].Speed;
@@ -72,7 +76,99 @@ public class CombatController {
         
         Arrays.sort(speedValues);
         this.turn = 0;
-        return speedValues;
+        this.turnOrder = speedValues;
+    }
+    
+    private void COMBATLOOP()
+    {
+        int index = 0;
+        while(combatActive == true)
+        {
+            if(turn < 0)
+            {
+                this.determineTurnOrder(this.fieldOfPlay);
+            }
+            
+            Creature actor = this.returnCreature(turn);
+            //LIST OF THINGS TO DO ON EACH TURN.
+            
+            //DRAW:
+                //if first turn, draw 3 cards from each chain 1-4
+                //if not, prompt player to draw 3 cards total from
+                //their choice of chains.
+            if(isFirstTurn == true)
+            {
+                
+            }
+            
+            //STANDBY:
+                //check for any continuous effects and resolve them
+                
+            //MAIN:
+                //allow player to use any cards they can from their hand
+                //resolve any effects that activate here.
+            
+            //PROMPT:
+                //ask the player if they want to either attack with thier
+                //minions or use an item.
+            
+            //ACTION:
+                //allow the player to use their item or make their attacks
+                //calculate any damage or effects.
+                
+            //END:
+                //set the turn counter to the next turn
+                //determine if any creatures were killed
+                //return to top of the loop.
+        }
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////
+    //  Descritpion: This function returns the creature which matches the speed
+    //  value present in the turn order array.
+    //
+    //  Inputs: An int representing the speed of the creature to select.
+    //
+    //  Outputs: A creature object.
+    //////////////////////////////////////////////////////////////////////////////
+    private Creature returnCreature(int speed)
+    {
+        int count = 0;
+        Creature holding = null;
+        while(count < 5)
+        {
+            holding = this.fieldOfPlay.player.Party[count];
+            if(holding.Speed == speed)
+            {
+                count = 6;
+            }
+            else
+            {
+                count++;
+                if(count == 5)
+                {
+                    count = 0;
+                    while (count < 5)
+                    {
+                        holding = this.fieldOfPlay.opponents[count];
+                        if(holding.Speed == speed)
+                        {
+                            count = 6;
+                        }
+                        else
+                        {
+                            count++;
+                        }
+                    }
+                }
+            }
+        }
+        if(holding == null)
+        {
+            System.out.println("ERROR IN LOCATING CREATURE");
+            System.out.println("THERE IS NO CREATURE WITH THIS SPEED");
+        }
+        return holding;
     }
 
 }
